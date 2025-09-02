@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Livros</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { margin-right: 10px; }
+        .favorito { color: red; font-weight: bold; }
+        li { margin: 5px 0; }
+        button { margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Gerenciador de Livros</h1>
+
+    <input type="text" id="titulo" placeholder="Digite o título do livro">
+    <button id="adicionar">Adicionar Livro</button>
+
+    <ul id="listaLivros"></ul>
+
+    <script>
+        const lista = document.getElementById('listaLivros');
+        const input = document.getElementById('titulo');
+        const adicionarBtn = document.getElementById('adicionar');
+
+        function criarElementoLivro(titulo) {
+            const li = document.createElement('li');
+            li.textContent = titulo;
+
+            // Botão favorito
+            const favBtn = document.createElement('button');
+            favBtn.textContent = '❤️';
+            favBtn.id = 'favorito_' + lista.children.length;
+            favBtn.onclick = () => {
+                li.classList.toggle('favorito');
+            };
+            li.appendChild(favBtn);
+
+            // Botão remover
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = '🗑';
+            removeBtn.id = 'remover_' + lista.children.length;
+            removeBtn.onclick = () => {
+                lista.removeChild(li);
+            };
+            li.appendChild(removeBtn);
+
+            return li;
+        }
+
+        adicionarBtn.addEventListener('click', () => {
+            if (input.value.trim() !== '') {
+                const li = criarElementoLivro(input.value.trim());
+                lista.appendChild(li);
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
