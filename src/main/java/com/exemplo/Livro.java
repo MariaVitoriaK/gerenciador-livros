@@ -1,34 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.exemplo;
 
-/**
- *
- * @author mvk09
- */
 public class Livro {
     private String titulo;
     private boolean favorito;
 
     public Livro(String titulo) {
         this.titulo = titulo;
-        this.favorito = false;
+        this.favorito = false; // Por padrão, livro não é favorito
     }
 
+    // Marca o livro como favorito.
     public void marcarComoFavorito() {
         this.favorito = true;
     }
 
+    // Remove a marcação de favorito do livro.
     public void desmarcarComoFavorito() {
         this.favorito = false;
     }
 
+    // Retorna se o livro está marcado como favorito.
     public boolean isFavorito() {
         return favorito;
     }
 
+    // Retorna o título do livro.
     public String getTitulo() {
         return titulo;
     }

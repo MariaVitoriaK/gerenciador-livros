@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.exemplo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-/**
- *
- * @author Administrador
- */
+
+// Teste de INTEGRAÇÃO
+
 public class GerenciadorLivrosIntegrationTest {
       @Test
     public void deveAdicionarLivroExterno() throws Exception {
         GerenciadorLivros ger = new GerenciadorLivros();
 
-        // Exemplo de OLID real: OL45883W
+        // Código de exemplo da OpenLibrary
         ger.adicionarLivroExterno("OL45819W");
 
+        // Verifica se o livro foi adicionado e possui título
         assertFalse(ger.getLivros().isEmpty());
         assertNotNull(ger.getLivros().get(0).getTitulo());
+        
         System.out.println("Livro adicionado: " + ger.getLivros().get(0).getTitulo());
     }
 }
